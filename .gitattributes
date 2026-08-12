@@ -1,0 +1,64 @@
+# Reusable rule for large binary source files.
+[attr]lfs -text filter=lfs diff=lfs merge=lfs
+
+# Unreal packages are binary and should be locked while being edited.
+[attr]unreal -text filter=lfs diff=lfs merge=lfs lockable
+
+# Normalize text files across platforms.
+* text=auto
+
+.gitattributes text eol=lf
+.gitignore text eol=lf
+*.c text eol=lf
+*.cc text eol=lf
+*.cpp text eol=lf
+*.cs text eol=lf diff=csharp
+*.h text eol=lf
+*.hpp text eol=lf
+*.ini text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.uplugin text eol=lf
+*.uproject text eol=lf
+*.usf text eol=lf
+*.ush text eol=lf
+*.xml text eol=lf
+
+# Unreal Engine assets and maps.
+*.uasset unreal
+*.umap unreal
+
+# Common source art and texture files.
+*.dds lfs
+*.exr lfs
+*.hdr lfs
+*.jpeg lfs
+*.jpg lfs
+*.png lfs
+*.psd lfs
+*.tga lfs
+*.tif lfs
+*.tiff lfs
+
+# Common source audio and video files.
+*.flac lfs
+*.mp3 lfs
+*.ogg lfs
+*.wav lfs
+*.avi lfs
+*.mov lfs
+*.mp4 lfs
+
+# Common 3D source files.
+*.abc lfs
+*.blend lfs
+*.dae lfs
+*.fbx lfs
+*.glb lfs
+*.gltf lfs
+*.ma lfs
+*.mb lfs
+*.obj lfs
+*.usd lfs
+*.usdc lfs
+*.usdz lfs
