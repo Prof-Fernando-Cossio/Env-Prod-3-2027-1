@@ -1,0 +1,6 @@
+{
+  "sequence": "/Game/SlotMachine/LS_SlotMachine_Showcase.LS_SlotMachine_Showcase",
+  "auto_play": "<Struct 'MovieSceneSequencePlaybackSettings' (0x000001BCDCD438A0) {auto_play: True, loop_count: {value: -1}, tick_interval: {tick_interval_seconds: 0.000000, evaluation_budget_microseconds: 0.000000, tick_when_paused: False, allow_rounding: True}, play_rate: 1.000000, start_time: 0.000000, random_start_time: False, disable_movement_input: False, disable_look_at_input: False, hide_player: False, hide_hud: False, disable_camera_cuts: False, finish_completion_state_override: None, pause_at_end: False}>",
+  "camera": "<Struct 'Transform' (0x000001B9AACF4D50) {rotation: {x: -0.067443, y: 0.122860, z: 0.476460, w: 0.867953}, translation: {x: 1069.999996, y: -499.999997, z: 200.000000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+  "machine": "<Struct 'Transform' (0x000001B9AACF4D50) {rotation: {x: 0.000000, y: -0.000000, z: 0.707107, w: 0.707107}, translation: {x: 1280.000000, y: -170.000000, z: 0.000000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>"
+}

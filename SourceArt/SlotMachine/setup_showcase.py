@@ -1,0 +1,32 @@
+import unreal,json
+from pathlib import Path
+P=Path(unreal.Paths.project_dir()).resolve().parent/'SourceArt/SlotMachine'
+AS=unreal.EditorAssetLibrary;AT=unreal.AssetToolsHelpers.get_asset_tools()
+actors=unreal.get_editor_subsystem(unreal.EditorActorSubsystem)
+machine=next(a for a in actors.get_all_level_actors() if a.get_actor_label()=='Lucky Star | 1960s Slot Machine')
+camera=next(a for a in actors.get_all_level_actors() if a.get_actor_label()=='Slot Machine Showcase Camera')
+camera.set_actor_location(unreal.MathLibrary.transform_location(machine.get_actor_transform(),unreal.Vector(220,400,210)),False,False)
+camera.get_component_by_class(unreal.CameraComponent).set_editor_property('field_of_view',45.)
+camera.set_actor_rotation(unreal.MathLibrary.find_look_at_rotation(camera.get_actor_location(),machine.get_actor_location()+unreal.Vector(0,0,87)),False)
+seq=AS.load_asset('/Game/SlotMachine/LS_SlotMachine_Showcase')
+if not seq:seq=AT.create_asset('LS_SlotMachine_Showcase','/Game/SlotMachine',unreal.LevelSequence,unreal.LevelSequenceFactoryNew())
+seq.set_display_rate(unreal.FrameRate(30,1));seq.set_playback_start(0);seq.set_playback_end(360)
+if not seq.get_bindings():
+    bind=seq.add_possessable(camera)
+    track=seq.add_track(unreal.MovieSceneCameraCutTrack)
+    section=track.add_section();section.set_range(0,360)
+    binding_id=unreal.MovieSceneObjectBindingID();binding_id.set_editor_property('guid',bind.get_id())
+    section.set_camera_binding_id(binding_id)
+ls=next((a for a in actors.get_all_level_actors() if a.get_actor_label()=='Slot Machine | Auto-Play Showcase'),None)
+if not ls:ls=actors.spawn_actor_from_class(unreal.LevelSequenceActor,unreal.Vector(0,0,0))
+ls.set_actor_label('Slot Machine | Auto-Play Showcase');ls.set_sequence(seq)
+settings=unreal.MovieSceneSequencePlaybackSettings();settings.auto_play=True
+settings.loop_count=unreal.MovieSceneSequenceLoopCount(-1)
+ls.set_editor_property('playback_settings',settings)
+AS.save_loaded_asset(seq)
+unreal.get_editor_subsystem(unreal.LevelEditorSubsystem).save_current_level()
+unreal.EditorLoadingAndSavingUtils.save_dirty_packages(True,True)
+unreal.EditorLevelLibrary.set_level_viewport_camera_info(camera.get_actor_location(),camera.get_actor_rotation())
+unreal.SystemLibrary.execute_console_command(unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem).get_editor_world(),'viewmode lit')
+actors.set_selected_level_actors([])
+(P/'showcase_report.json').write_text(json.dumps({'sequence':seq.get_path_name(),'auto_play':str(settings),'camera':str(camera.get_actor_transform()),'machine':str(machine.get_actor_transform())},indent=2))

@@ -50,3 +50,7 @@ Desktop.ini
 
 # Unreal crash reports
 crashinfo--*
+
+# Blender incremental backups
+*.blend1
+*.blend2

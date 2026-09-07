@@ -1,0 +1,1 @@
+PASS: Native Blueprint animation playing in PIE; observed two automatic wraps of a 12-second cycle.

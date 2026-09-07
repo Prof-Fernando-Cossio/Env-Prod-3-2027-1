@@ -1,0 +1,52 @@
+{
+  "objects": 5,
+  "vertices": 18700,
+  "quads": 18537,
+  "non_quad_faces": 0,
+  "parts": [
+    {
+      "name": "Cabinet",
+      "quads": 15549,
+      "non_manifold_edges": 12,
+      "bone": "Root"
+    },
+    {
+      "name": "Lever",
+      "quads": 1260,
+      "non_manifold_edges": 0,
+      "bone": "Lever"
+    },
+    {
+      "name": "Reel_1",
+      "quads": 576,
+      "non_manifold_edges": 0,
+      "bone": "Reel_1"
+    },
+    {
+      "name": "Reel_2",
+      "quads": 576,
+      "non_manifold_edges": 0,
+      "bone": "Reel_2"
+    },
+    {
+      "name": "Reel_3",
+      "quads": 576,
+      "non_manifold_edges": 0,
+      "bone": "Reel_3"
+    }
+  ],
+  "animation_seconds": 12,
+  "fps": 30,
+  "reel_stop_seconds": [
+    4.9,
+    5.55,
+    6.2
+  ],
+  "texture_resolution": [
+    4096,
+    4096
+  ],
+  "UV": "Non-overlapping BakeUV, exported channel 0",
+  "ORM": "R=1 ambient-occlusion neutral, G=roughness, B=metallic",
+  "source_topology": "100% quads; FBX/game renderer triangulates for rendering"
+}
