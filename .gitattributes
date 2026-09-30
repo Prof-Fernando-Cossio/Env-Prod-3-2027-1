@@ -62,3 +62,9 @@
 *.usd lfs
 *.usdc lfs
 *.usdz lfs
+
+# Store the Tokyo environment pack and its external map data in ordinary Git.
+EnvProd3_271/Content/TokyoStylizedEnvironment/** -text -filter -diff -merge
+EnvProd3_271/Content/__ExternalActors__/TokyoStylizedEnvironment/** -text -filter -diff -merge
+EnvProd3_271/Content/__ExternalObjects__/TokyoStylizedEnvironment/** -text -filter -diff -merge
+EnvProd3_271/Content/__ExternalActors__/ThirdPerson/Maps/** -text -filter -diff -merge
