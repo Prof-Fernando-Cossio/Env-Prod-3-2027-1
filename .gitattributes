@@ -62,3 +62,6 @@
 *.usd lfs
 *.usdc lfs
 *.usdz lfs
+
+# Store the SoulCave asset pack directly in Git without LFS.
+EnvProd3_271/Content/SoulCave/** -text -filter -diff -merge -lockable
